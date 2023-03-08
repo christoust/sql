@@ -1,0 +1,10 @@
+1SELECT car_id, car_name, car_type 
+FROM cars
+WHERE car_id NOT IN (SELECT car_id FROM rentals)
+ORDER BY car_id;
+2select cars.car_id,cars.car_name,cars.owner_id from cars where car_type='suv' or car_type='hatchback';
+3.alter table cars add(car_regno varchar(20));
+4.select car_id,car_name,car_type from cars where car_name=(select car_name from cars where car_name like'Maruthi%') and car_type='sedan';
+5.select * from owners inner join cars.cars on cars.owner_id=owners.owner_id where cars.car_name='Maruthi';
+6.select rental_id,car_id,customer_id,km_driven from rentals where pickup_date between '2018-08-01'and '2018-08-31';
+7.select car_id,count(car_id) as 'NO_OF_TRIPS' from rentals group by car_id;
