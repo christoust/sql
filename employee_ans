@@ -1,0 +1,21 @@
+Write a query to fetch the first_name from the Employee table in the upper case and use the ALIAS name as EmpName.
+select upper(first_name)  as alias_name from employee;
+Write a query to fetch the number of employees working in the department ‘HR’.
+select count(*) from employee inner join department on employee.department_id=department.department_id where department_name='HR';
+Write a query to get the current date.
+select curdate();
+Write a query to retrieve the first four characters of  EmpLname from the EmployeeInfo table.
+select substring(last_name,1,4) from employee ;
+Write a query to fetch only the place name(string before brackets) from the Address column of EmployeeInfo table.
+SELECT SUBSTRING(Address, 1, CHARINDEX(‘(‘,Address)) FROM employee
+Write a query to create a new table that consists of data and structure copied from the other table.
+create employee_copy table employee_copy as select*from employee;
+
+Write q query to find all the employees whose salary is between 50000 to 100000.
+select * from employee where salary between 50000 and 100000;
+Write a query to find the names of employees that begin with ‘S’
+select first_name from employee where first_name like 'S%';
+Write a query to fetch top N records.
+SELECT TOP N * FROM employee ORDER BY Salary DESC;
+Write a query to retrieve the EmpFname and EmpLname in a single column as “FullName”. The first name and the last name must be separated with space.
+SELECT *,concat(first_name,' ',last_name) as Fullname from employee;
